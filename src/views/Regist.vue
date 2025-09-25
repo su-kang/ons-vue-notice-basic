@@ -31,13 +31,7 @@
 				<h4>게시판 정보</h4>
 				<div class="box">
 					<label for="title">제 목</label>
-					<input
-						type="text"
-						id="title"
-						name="title"
-						v-model="input.title"
-						@input="onChangeInput"
-					/>
+					<input type="text" id="title" name="title" v-model="input.title" />
 				</div>
 				<div class="box">
 					<label for="createName">작 성 자</label>
@@ -46,7 +40,6 @@
 						id="createName"
 						name="createName"
 						v-model="input.createName"
-						@input="onChangeInput"
 					/>
 				</div>
 			</div>
@@ -57,7 +50,6 @@
 					id="content"
 					name="content"
 					v-model="input.content"
-					@input="onChangeInput"
 					placeholder="본문을 입력해주세요"
 				/>
 			</div>
@@ -97,17 +89,6 @@ const onClickItem = (item: any) => {
 	input.value = {
 		...input.value,
 		typeId: item.id,
-	};
-};
-
-const onChangeInput = (event: Event) => {
-	const target = event.target as HTMLInputElement | HTMLTextAreaElement;
-	const name = target.name;
-	const value = target.value;
-
-	input.value = {
-		...input.value,
-		[name]: value,
 	};
 };
 
