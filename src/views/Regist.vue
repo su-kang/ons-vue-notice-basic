@@ -2,10 +2,12 @@
 	<div>
 		<!-- Header Component -->
 		<header class="Header">
+			<!-- Button Component -->
 			<div class="header_left">
 				<button class="btn btn-blue" @click="goBack">← 뒤로 가기</button>
 			</div>
 			<div class="header_center">게시판 등록</div>
+			<!-- Button Component -->
 			<div class="header_right"></div>
 		</header>
 

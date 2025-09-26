@@ -2,8 +2,10 @@
 	<div>
 		<!-- Header Component -->
 		<header class="Header">
+			<!-- Button Component -->
 			<div class="header_left"></div>
 			<div class="header_center">게시판 샘플 리스트</div>
+			<!-- Button Component -->
 			<div class="header_right">
 				<button class="btn btn-green" @click="navigateToRegist">
 					새글 등록

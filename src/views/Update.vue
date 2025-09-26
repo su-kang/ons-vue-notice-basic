@@ -2,6 +2,7 @@
 	<div>
 		<!-- Header Component -->
 		<header class="Header">
+			<!-- Button Component -->
 			<div class="header_left">
 				<button class="btn btn-blue" @click="goBack">← 뒤로 가기</button>
 			</div>
