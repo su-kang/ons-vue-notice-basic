@@ -65,9 +65,6 @@
 </template>
 
 <script setup lang="ts">
-import '@/assets/Button.css';
-import '@/assets/Header.css';
-import '@/assets/Notice.css';
 import { ICON_LIST } from '@/utils/Constants';
 import { onRead } from '@/utils/localStorageUtil';
 import { onMounted, ref, watch } from 'vue';
