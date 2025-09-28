@@ -67,13 +67,13 @@
 <script setup lang="ts">
 import { ICON_LIST } from '@/utils/Constants';
 import { onCreate } from '@/utils/localStorageUtil';
-import { onMounted, ref } from 'vue';
+import { onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
 // Form state
-const input = ref({
+const input = reactive({
 	typeId: 1,
 	title: '',
 	createName: '',
@@ -84,16 +84,13 @@ const input = ref({
 
 // Methods
 const onClickItem = (item: any) => {
-	input.value = {
-		...input.value,
-		typeId: item.id,
-	};
+	input.typeId = item.id;
 };
 
 const onSubmit = () => {
 	// 등록 로직 (localStorage에 저장)
-	onCreate(input.value);
-	console.log('등록 데이터:', input.value);
+	onCreate(input);
+	console.log('등록 데이터:', input);
 
 	// 등록 후 리스트 페이지로 이동
 	router.push('/');

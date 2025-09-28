@@ -67,14 +67,14 @@
 <script setup lang="ts">
 import { ICON_LIST } from '@/utils/Constants';
 import { onRead } from '@/utils/localStorageUtil';
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, reactive, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
 // NoticeList state
-const noticeList: any = ref([]);
-const searchParams = ref({
+const noticeList: any = reactive([]);
+const searchParams = reactive({
 	order: 'desc',
 	title: '',
 	createName: '',
@@ -83,22 +83,16 @@ const searchParams = ref({
 // Methods
 const onChangeSelectEvent = (event: Event) => {
 	const target = event.target as HTMLSelectElement;
-	searchParams.value = {
-		...searchParams.value,
-		order: target.value,
-	};
+	searchParams.order = target.value;
 	console.log('event', target.value);
 };
 
 const onChangeInputEvent = (event: Event) => {
 	const target = event.target as HTMLInputElement;
-	const name = target.name;
+	const name = target.name as keyof typeof searchParams;
 	const value = target.value;
 
-	searchParams.value = {
-		...searchParams.value,
-		[name]: value,
-	};
+	searchParams[name] = value;
 };
 
 const selectIconInfo = (typeId: number) => {
@@ -124,13 +118,13 @@ const navigateToRegist = () => {
 watch(
 	searchParams,
 	() => {
-		noticeList.value = onRead(searchParams.value);
+		noticeList.splice(0, noticeList.length, ...onRead(searchParams));
 	},
 	{ deep: true },
 );
 
 // Lifecycle
 onMounted(() => {
-	noticeList.value = onRead(searchParams.value);
+	noticeList.splice(0, noticeList.length, ...onRead(searchParams));
 });
 </script>

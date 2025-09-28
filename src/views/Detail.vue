@@ -63,14 +63,14 @@
 <script setup lang="ts">
 import { ICON_LIST } from '@/utils/Constants';
 import { onReadOne } from '@/utils/localStorageUtil';
-import { onMounted, ref } from 'vue';
+import { onMounted, reactive } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const router = useRouter();
 const route = useRoute();
 
 // State
-const noticeData: any = ref({});
+const noticeData: any = reactive({});
 
 // Methods
 const selectIconInfo = (id: number) => {
@@ -92,6 +92,6 @@ const goBack = () => {
 // Lifecycle
 onMounted(() => {
 	const id = route.query.id;
-	noticeData.value = onReadOne(id);
+	Object.assign(noticeData, onReadOne(id));
 });
 </script>
