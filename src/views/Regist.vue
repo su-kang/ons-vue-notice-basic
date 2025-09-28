@@ -15,7 +15,7 @@
 		<div class="regist">
 			<div class="type">
 				<h4>게시판 종류</h4>
-				<section class="list_wrapper">
+				<section class="list_wrapper_item">
 					<div
 						v-for="item in ICON_LIST"
 						:key="item.id"
