@@ -2,19 +2,20 @@
 	<div>
 		<!-- Header Component -->
 		<header class="Header">
-			<!-- Button Component -->
 			<div class="header_left">
+				<!-- Slot left -->
 				<button class="btn btn-blue" @click="goBack">← 뒤로 가기</button>
 			</div>
 			<div class="header_center">게시판 등록</div>
-			<!-- Button Component -->
+			<!-- Slot right -->
 			<div class="header_right"></div>
 		</header>
 
-		<!-- NoticeRegist Component -->
+		<!-- Regist Component -->
 		<div class="regist">
 			<div class="type">
 				<h4>게시판 종류</h4>
+				<!-- IconItem Component -->
 				<section class="list_wrapper_item">
 					<div
 						v-for="item in ICON_LIST"

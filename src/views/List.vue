@@ -2,18 +2,17 @@
 	<div>
 		<!-- Header Component -->
 		<header class="Header">
-			<!-- Button Component -->
 			<div class="header_left"></div>
 			<div class="header_center">게시판 샘플 리스트</div>
-			<!-- Button Component -->
 			<div class="header_right">
+				<!-- Slot right -->
 				<button class="btn btn-green" @click="navigateToRegist">
 					새글 등록
 				</button>
 			</div>
 		</header>
 
-		<!-- NoticeList Component -->
+		<!-- List Component -->
 		<div class="notice">
 			<div class="menu_bar">
 				<select name="searchOrder" @change="onChangeSelectEvent">
@@ -40,7 +39,7 @@
 					등록된 게시글이 없습니다.
 				</div>
 				<div v-for="item in noticeList" :key="item.id" class="noticeItem">
-					<!-- NoticeItem Component -->
+					<!-- ListItem Component -->
 					<div class="notice_info" @click="onClickDetail(item.id)">
 						<div class="img_section">
 							<img :src="selectIconInfo(item.typeId)?.icon" />

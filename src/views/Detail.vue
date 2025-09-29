@@ -2,18 +2,18 @@
 	<div>
 		<!-- Header Component -->
 		<header class="Header">
-			<!-- Button Component -->
 			<div class="header_left">
+				<!-- Slot left -->
 				<button class="btn btn-blue" @click="goBack">← 뒤로 가기</button>
 			</div>
 			<div class="header_center">[ {{ noticeData.title }} ] 상세</div>
-			<!-- Button Component -->
 			<div class="header_right">
+				<!-- Slot right -->
 				<button class="btn btn-blue" @click="onClickUpdate">수정하기</button>
 			</div>
 		</header>
 
-		<!-- NoticeDetail Component -->
+		<!-- Detail Component -->
 		<div class="detail">
 			<div class="detail_box">
 				<h4>게시판 종류</h4>
